@@ -7,7 +7,7 @@
         "plugin",
         "batchreplace"
     ],
-    "version": "1.0.3",
+    "version": "1.0.4",
     "publisher": "raindrop",
     "engines": {
         "vscode": "^1.27.0"
@@ -21,8 +21,7 @@
     ],
     "main": "./src/extension",
     "contributes": {
-        "configuration": {
-        },
+        "configuration": {},
         "commands": [
             {
                 "command": "extension.batchReplace",
@@ -71,5 +70,8 @@
         "type": "git",
         "url": "https://github.com/rainpure/batch-replace"
     },
-    "homepage": "https://github.com/rainpure/batch-replace/blob/master/README.md"
+    "homepage": "https://github.com/rainpure/batch-replace/blob/master/README.md",
+    "dependencies": {
+        "vsce": "^1.92.0"
+    }
 }

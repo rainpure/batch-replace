@@ -8,7 +8,6 @@ const util = require('./util');
  * @param {*} response
  */
 function invokeCallback(panel, message, response) {
-    // console.log('回调消息：', response);
     // 错误码在400-600之间的，默认弹出错误提示
     if (typeof response == 'object' && response.code && response.code >= 400 && response.code < 600) {
         util.showError(response.message || '发生未知错误！');
