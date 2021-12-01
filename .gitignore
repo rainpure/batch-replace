@@ -1,0 +1,5 @@
+node_modules
+.vscode-test/
+*.vsix
+.vscode-upload.json
+.DS_Store

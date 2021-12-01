@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSF可视化配置，这个标题其实是没用的</title>
+    <link rel="stylesheet" href="../../lib/element-ui-2.7.2/index.css">
+    <link rel="stylesheet" href="../../src/view/batch-replace.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="header">
+            <h2>Replace Rules</h2>
+            <span class="operate add" @click="add">+</span>
+        </div>
+        <div class="content">
+            <div class="rules">
+                <div class="rules-item" v-for="(item, index) in replaceRule" @mouseover="item.showDel = true"
+                    @mouseout="item.showDel = false">
+                    <el-input v-model="item.find" placeholder="Search" :size="size"></el-input>
+                    <span class="seperate">→</span>
+                    <el-input v-model="item.to" placeholder="Replace" :size="size"></el-input>
+                    <span :class="{ 'hide': !item.showDel }" class="operate del" @click="del(index)">×</span>
+                </div>
+            </div>
+            <div v-if="replaceRule.length > 0">
+                <el-button @click="match" :size="size">Search</el-button>
+                <el-button @click="replace" type="primary" :size="size">Replace All</el-button>
+            </div>
+            <div v-else class="empty">
+                点击右上角 "+" 添加匹配规则
+            </div>
+            <!-- <div>{{replaceRule}}</div> -->
+        </div>
+    </div>
+    <script src="../../lib/vue-2.5.17/vue.js"></script>
+    <script src="../../lib/element-ui-2.7.2/index.js"></script>
+    <script src="../../src/view/batch-replace.js"></script>
+</body>
+
+</html>

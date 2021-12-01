@@ -1,0 +1,72 @@
+body, html, h2 {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-size: 14px;
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
+}
+#app {
+    padding: 0 20px;
+    min-width: 320px;
+}
+.hide {
+    visibility: hidden;
+}
+.el-input+.el-input {
+    margin-top: 10px;
+    width: 40%;
+}
+
+/* header */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+.header h2 {
+    font-size: 28px;
+}
+.operate {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    vertical-align: middle;
+    text-align: center;
+    display: inline-block;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.operate.add {
+    border: 1px solid #67c23a;
+    color: #67c23a;
+}
+.operate.del {
+    margin-left: 5px;
+    border: 1px solid #f56c6c;
+    color: #f56c6c;
+}
+
+/* content */
+
+.seperate {
+    margin: 0 5px;
+}
+
+.rules {
+    margin-bottom: 20px;
+}
+
+.rules-item {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.empty {
+    text-align: center;
+    color: #ccc;
+}
