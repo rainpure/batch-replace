@@ -45,12 +45,20 @@ new Vue({
             find: '输入需要替换的内容',
             to: '',
             showDel: false
-        }]
+        }],
+        histroyRules: []
     },
     mounted() {
         callVscode('getFileContent', fileContent => this.fileContent = fileContent);
+        console.log('window', window.localStorage);
     },
-    watch: {},
+    watch: {
+        historyRules: {
+            deep: true,
+            handler() {
+            }
+        }
+    },
     methods: {
         // 模拟alert
         alert(info) {
@@ -72,6 +80,9 @@ new Vue({
                 item.to = '';
             })
         },
+        resetHistory() {
+            this.histroyRules = []
+        },
         validate() {
             let emptyNum = 0;
             this.replaceRule.forEach(item => {
@@ -91,6 +102,11 @@ new Vue({
             if (!this.validate()) {
                 return;
             }
+            this.replaceRule.forEach(element => {
+                this.histroyRules.push({
+                    ...element
+                })
+            });
 
             callVscode({
                 cmd: 'match',
@@ -103,13 +119,17 @@ new Vue({
             if (!this.validate()) {
                 return;
             }
+            this.replaceRule.forEach(element => {
+                this.histroyRules.push({
+                    ...element
+                })
+            });
 
             callVscode({
                 cmd: 'replace',
                 rules: this.replaceRule
             }, (data) => {
                 this.alert(`${data.length}个匹配项已替换`);
-                this.reset();
             });
         },
         add() {
@@ -121,6 +141,9 @@ new Vue({
         },
         del(index) {
             this.replaceRule.splice(index, 1);
+        },
+        reuseHistory(item) {
+            this.replaceRule.push({...item})
         }
     }
 });

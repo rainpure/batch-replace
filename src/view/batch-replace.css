@@ -28,24 +28,23 @@ body, html, h2 {
 .header h2 {
     font-size: 28px;
 }
+.operator {
+    float: right;
+}
+.operator.clear-his {
+    font-size: 12px;
+    padding: 3px 0;
+}
 .operate {
-    width: 20px;
-    height: 20px;
-    min-width: 20px;
-    min-height: 20px;
-    vertical-align: middle;
-    text-align: center;
-    display: inline-block;
-    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
 }
 .operate.add {
-    border: 1px solid #67c23a;
     color: #67c23a;
 }
 .operate.del {
     margin-left: 5px;
-    border: 1px solid #f56c6c;
     color: #f56c6c;
 }
 
@@ -69,4 +68,21 @@ body, html, h2 {
 .empty {
     text-align: center;
     color: #ccc;
+}
+
+.history {
+    margin-top: 20px;
+}
+.history-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+.history-title {
+    font-size: 12px;
+    color: #333;
+}
+
+.history-item {
+    cursor: pointer;
+    margin: 0 5px 5px 0;
 }
